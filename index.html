@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>QR Code Generation Using JavaScript</title>
+    <script src="js/lib/JsBarcode.all.min.js"></script>
+    <style>
+    input,
+    div {
+        text-align: center;
+        margin: 1% auto;
+    }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input id="barcode-text" oninput="generateBarcode()" autofocus placeholder="Type Something" value="Hello, World" />
+    </div>
+    <div>
+        <svg id="barcode"></svg>
+    </div>
+
+    <script>
+        var generateBarcode = (function() {
+            var barcodeInput = document.getElementById('barcode-text');
+            generateBarcode();
+
+            function generateBarcode() {
+                var value = barcodeInput.value || 'Hello, World';
+                JsBarcode('#barcode', value);
+            }
+
+            return generateBarcode;
+
+        })();
+    </script>
+</body>
+
+</html>
